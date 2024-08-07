@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+
+<title></title>
+<link rel="icon" type="image/x-icon" href="images/favicon.png">
+<script>
+
+console.log("test1111");
+console.log(Math.PI);
+
+</script>
+
+</head>
+<!--amongus-->
+<body>
+<a href="real.html">
+<mark><img src="images/htmlTest.png" alt="HTML Test :)" width="25" height="25"></mark>
+</a>
+<a href="sitemap.html">
+<mark><img src="images/sitemap.png" alt="Sitemap" width="25" height="25"></mark>
+</a>
+
+<p id="1"></p>
+<p id="2"></p>
+<p id="3"></p>
+<p id="4"></p>
+<p id="5"></p>
+<p id="6"></p>
+<p id="7"></p>
+<p id="8"></p>
+<p id="9"></p>
+<p id="10"></p>
+
+<script>
+function randomInteger(a) {
+ return Math.floor(Math.random() * a);
+}
+ 
+function generate () {
+//20-50 hue
+//30%-10% lightness
+//50%-100% saturation
+  let hue
+  let saturation
+  let lightness
+  hue = randomInteger(30) + 20;
+  lightness = randomInteger(20) + 10;
+  saturation = randomInteger(50) + 50;
+
+  return `hsla(${hue},${saturation}%,${lightness}%,1)`
+}
+function hslToHex(h, s, l) {
+  l /= 100;
+  const a = s * Math.min(l, 1 - l) / 100;
+  const f = n => {
+    const k = (n + h / 30) % 12;
+    const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+    return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
+  };
+  return `#${f(0)}${f(8)}${f(4)}`;
+}
+document.getElementById("1").style.color = generate();
+</script>
+
+</body>
+
+
+
+</html>
